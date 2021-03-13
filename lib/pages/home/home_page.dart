@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
         // )
         body: FutureBuilder(
           future: swiperGoodsMget({
-            "ids": [3, 7, 4, 5, 6],
+            "ids": [3, 7, 6],
           }),
           builder: (context, snapshot) {
             if (snapshot.hasData) {

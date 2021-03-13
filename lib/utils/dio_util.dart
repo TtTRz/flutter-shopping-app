@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_demo/utils/dio_list_transformer.dart';
 import 'dart:async';
 import 'dart:io';
 import '../config//http_headers.dart';
@@ -11,6 +12,8 @@ class DioUtil {
   static Dio dio = new Dio();
 
   static Future request({url, method, data, queryParams}) async {
+    dio.transformer = ListTransformer();
+    print(data);
     dio.interceptors
         .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
       print(
