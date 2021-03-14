@@ -1,5 +1,5 @@
 const serviceBaseUrl = "https://api.fmg.net.cn";
-
+// const serviceBaseUrl = "http://localhost:3000";
 const Map servicePath = {
   "user": {
     "register": "/account/login/register",

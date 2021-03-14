@@ -43,19 +43,28 @@ class _HomePageState extends State<HomePage> {
         // )
         body: FutureBuilder(
           future: swiperGoodsMget({
-            "ids": [3, 7, 6],
+            "ids": [3, 7],
           }),
           builder: (context, snapshot) {
+            print(snapshot.data);
             if (snapshot.hasData) {
-              var data = json.decode(snapshot.data.toString());
+              print(snapshot.data);
+              var data = List.castFrom(snapshot.data);
               print(data);
-              List<Map> swiperDataList = [];
-              // (data['data']['slides'] as List).cast();
-              return Column(
-                children: <Widget>[
-                  CustomSwiper(swiperDataList: swiperDataList),
-                ],
-              );
+              // List<Map> swiperDataList = data
+              //     .asMap()
+              //     .keys
+              //     .map((k) => ({
+              //           "image": data[k]["picture"],
+              //         }))
+              //     .toList();
+              // print(swiperDataList);
+              return Center(child: Text("tmp"));
+              // return Column(
+              //   children: <Widget>[
+              //     CustomSwiper(swiperDataList: swiperDataList),
+              //   ],
+              // );
             } else {
               return Center(child: Text("Swiper Loading..."));
             }

@@ -8,12 +8,16 @@ import '../config//http_headers.dart';
 import '../config/service_url.dart';
 import 'package:dio_log/dio_log.dart';
 
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:cookie_jar/cookie_jar.dart';
+
 class DioUtil {
   static Dio dio = new Dio();
-
+  static CookieJar cookieJar = CookieJar();
   static Future request({url, method, data, queryParams}) async {
-    dio.transformer = ListTransformer();
-    print(data);
+    dio.interceptors.add(CookieManager(cookieJar));
+    print(cookieJar.loadForRequest(Uri.parse("https://api.fmg.net.cn")));
+
     dio.interceptors
         .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
       print(
@@ -34,6 +38,7 @@ class DioUtil {
       print(
           "\n=================================错误响应数据 =================================");
       print("type = ${e.type}");
+      print(e.response);
       print("message = ${e.message}");
       print("\n");
     }));
