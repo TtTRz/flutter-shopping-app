@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_demo/service/user.dart';
 
 import './cart/cart_page.dart';
 import './category/category_page.dart';
@@ -23,13 +24,24 @@ class _IndexPageState extends State<IndexPage> {
         icon: Icon(CupertinoIcons.profile_circled), label: "User")
   ];
 
-  final List tabBodies = [HomePage(), CategoryPage(), CartPage(), UserPage()];
+  final List tabBodies = [
+    HomePage(),
+    CategoryPage(),
+    CartPage(),
+    UserPage(),
+    FeaturePage()
+  ];
   int currentIndex = 0;
 
   var currentPage;
 
   @override
   void initState() {
+    userWebLogin({"open_id": "om10q46ltMBS_c1g7div4mGBA6fU"}).then((val) {
+      // setState(() {
+      //   // homePageContent = val["id"].toString();
+      // });
+    });
     currentPage = tabBodies[currentIndex];
     super.initState();
   }
