@@ -216,6 +216,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_2d_amap:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "8609e895ac7887f86f4201edf844829465ce66eb"
+      url: "https://github.com/TtTRz/flutter_2d_amap.git"
+    source: git
+    version: "0.2.0+1"
   flutter_page_indicator:
     dependency: transitive
     description:
@@ -557,4 +566,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=0.1.4"
+  flutter: ">=1.10.0"

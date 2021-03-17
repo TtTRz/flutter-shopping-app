@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_demo/pages/feature/feature_page.dart';
 import 'package:flutter_demo/service/user.dart';
 
 import './cart/cart_page.dart';
@@ -21,6 +22,8 @@ class _IndexPageState extends State<IndexPage> {
     BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.shopping_cart), label: "Cart"),
     BottomNavigationBarItem(
+        icon: Icon(CupertinoIcons.list_bullet), label: "Feature"),
+    BottomNavigationBarItem(
         icon: Icon(CupertinoIcons.profile_circled), label: "User")
   ];
 
@@ -28,8 +31,8 @@ class _IndexPageState extends State<IndexPage> {
     HomePage(),
     CategoryPage(),
     CartPage(),
+    FeaturePage(),
     UserPage(),
-    FeaturePage()
   ];
   int currentIndex = 0;
 
@@ -64,21 +67,4 @@ class _IndexPageState extends State<IndexPage> {
       body: currentPage,
     );
   }
-
-  // void getHttp() async {
-  //   try {
-  //     Response response;
-  //     var data = {'name': "Rom"};
-  //     response = await Dio()
-  //         .post("https://api.fmg.net.cn/account/login/register", data: {
-  //       "city": "GuangZhou",
-  //       "country": "China",
-  //       "province": "GuangDong",
-  //       "nickName": "Rom",
-  //     });
-  //     return print(response);
-  //   } catch (e) {
-  //     return print(e);
-  //   }
-  // }
 }
